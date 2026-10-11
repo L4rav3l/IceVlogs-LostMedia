@@ -2,7 +2,7 @@ const VIDEOK = [
 
   { cim: "Láva Süti! 🌋 - w/ DoggyAndi [EREDETI CÍM]",            url: "https://www.youtube.com/watch?v=wbOOdJudyZg", kep: "kepek/lavacake.webp", megvan: false, link: "", bekuldo: "" },
   { cim: "Bejgli Készítés! 🎄 - w/ DoggyAndi zsDav [EREDETI CÍM]",               url: "https://www.youtube.com/watch?v=Lism0nRqhjc", kep: "kepek/bejgli.webp", megvan: false, link: "", bekuldo: "" },
-  { cim: "Sweet Roll Kuglóf! 👨‍🍳- w/ DoggyAndi [EREDETI CÍM]",    url: "https://www.youtube.com/watch?v=Oa-d_c8S_1Q", kep: "kepek/sweet-roll.webp", megvan: true, link: "Sweet Roll Kuglóf! 👨‍🍳- w⧸ DoggyAndi [Oa-d_c8S_1Q].mp4", bekuldo: "L4rav3l" },
+  { cim: "Sweet Roll Kuglóf! 👨‍🍳- w/ DoggyAndi [EREDETI CÍM]",    url: "https://www.youtube.com/watch?v=Oa-d_c8S_1Q", kep: "kepek/sweet-roll.webp", megvan: true, link: "https://drive.proton.me/urls/DN9ZS8K92G#CRO87ophXJNN", bekuldo: "L4rav3l" },
   { cim: "ApácaFingocska! 👵 - w/ DoggyAndi [EREDETI CÍM]",       url: "https://www.youtube.com/watch?v=nTjJRcJ7G3g", kep: "kepek/apacafingocska.webp", megvan: false, link: "", bekuldo: "" },
   { cim: "Quantum Pite! 🔥 - w/ zsDav DoggyAndi [EREDETI CÍM]",          url: "https://www.youtube.com/watch?v=C99-zmXa3SI", kep: "kepek/quantum-pie.webp", megvan: false, link: "", bekuldo: "" },
   { cim: "SzerencseSüti 🍀 - w/ zsDav DoggyAndi [EREDETI CÍM]",        url: "https://www.youtube.com/watch?v=zJbpnNF9-XY&gl=US&hl=en", kep: "kepek/szerencsesuti.webp", megvan: false, link: "", bekuldo: "" },
