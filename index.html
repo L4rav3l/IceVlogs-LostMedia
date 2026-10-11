@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ice Vlogs - Lost Media</title>
+<style>
+  body {
+    margin: 0;
+    padding: 24px;
+    background: #262626;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .doboz {
+    max-width: 1100px;
+    margin: 0 auto;
+    border: 2px solid #fff;
+    padding: 20px 24px 24px;
+  }
+
+  h1 {
+    margin: 0 0 16px;
+    font-size: 22px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  th, td {
+    border: 1px solid #fff;
+    padding: 6px 8px;
+    text-align: left;
+    vertical-align: top;
+  }
+
+  th { background: #333; }
+
+  td img {
+    width: 140px;
+    display: block;
+    border: 1px solid #fff;
+  }
+
+  a { color: #7fc4ff; }
+
+  .megvan { color: #7dff7d; }
+  .nincs  { color: #ff7d7d; }
+
+  footer {
+    margin-top: 20px;
+    padding-top: 12px;
+    border-top: 1px solid #fff;
+  }
+</style>
+</head>
+<body>
+
+<div class="doboz">
+  <h1>Ice Vlogs - Lost media keresés</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>URL</th>
+        <th>Cím</th>
+        <th>Index-kép</th>
+        <th>Állapot</th>
+        <th>Link</th>
+        <th>Megtaláló</th>
+      </tr>
+    </thead>
+    <tbody id="tabla"></tbody>
+  </table>
+
+  <footer>
+    Discord: <b>l4rav3l</b>
+  </footer>
+</div>
+
+
+<script src="adatok.js"></script>
+
+<script>
+  function ytId(url) {
+    const m = (url || "").match(/[?&]v=([^&]+)/);
+    return m ? m[1] : "";
+  }
+
+  const tabla = document.getElementById("tabla");
+
+  VIDEOK.forEach(function (v) {
+    const id = ytId(v.url);
+    const kepUrl = v.kep || (id ? "https://img.youtube.com/vi/" + id + "/mqdefault.jpg" : "");
+
+    const sor = document.createElement("tr");
+
+    // URL
+    const tdUrl = document.createElement("td");
+    if (v.url) {
+      const a = document.createElement("a");
+      a.href = v.url;
+      a.target = "_blank";
+      a.textContent = v.url;
+      tdUrl.appendChild(a);
+    } else {
+      tdUrl.textContent = "-";
+    }
+
+    // Cím
+    const tdCim = document.createElement("td");
+    tdCim.textContent = v.cim;
+
+    // Index-kép
+    const tdKep = document.createElement("td");
+    if (kepUrl) {
+      const img = document.createElement("img");
+      img.src = kepUrl;
+      img.alt = "index-kép";
+      img.onerror = function () { tdKep.textContent = "nincs kép"; };
+      tdKep.appendChild(img);
+    } else {
+      tdKep.textContent = "-";
+    }
+
+    // Megvan?
+    const tdMegvan = document.createElement("td");
+    tdMegvan.className = v.megvan ? "megvan" : "nincs";
+    tdMegvan.textContent = v.megvan ? "Megvan" : "Keresés alatt";
+
+    // Link
+    const tdLink = document.createElement("td");
+    if (v.megvan && v.link) {
+      const a = document.createElement("a");
+      a.href = encodeURI(v.link);
+      a.target = "_blank";
+      a.textContent = "link";
+      tdLink.appendChild(a);
+    } else {
+      tdLink.textContent = "-";
+    }
+
+    // Beküldő
+    const tdBekuldo = document.createElement("td");
+    tdBekuldo.textContent = v.bekuldo || "-";
+
+    sor.appendChild(tdUrl);
+    sor.appendChild(tdCim);
+    sor.appendChild(tdKep);
+    sor.appendChild(tdMegvan);
+    sor.appendChild(tdLink);
+    sor.appendChild(tdBekuldo);
+
+    tabla.appendChild(sor);
+  });
+</script>
+
+</body>
+</html>
